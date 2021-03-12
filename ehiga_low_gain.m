@@ -5,6 +5,6 @@ quanser_aero_state_space;
 % Low Gain LQR controller
 del = 0.01;
 Q = del * eye(4,4);
-G = -B * B';
-[X, K, L] = icare(A,[],Q,[],[],[],G)
+[X, L, G] = care(A,B,Q)
+eig(A-B*G)
 
